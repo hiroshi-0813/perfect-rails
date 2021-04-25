@@ -3,6 +3,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @ticket = current_user && current_user.tickets.find_by(event: @event)
     @tickets = @event.tickets.includes(:user).order(:created_at)
   end
 
@@ -41,7 +42,7 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(
-      :name, :place, :content, :start_at, :end_at
+      :name, :place, :image, :remove_image, :content, :start_at, :end_at
     )
   end
 end

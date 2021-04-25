@@ -25,6 +25,7 @@ module AwesomeEvents
     config.load_defaults 6.1
     config.time_zone = "Tokyo"
     config.i18n.default_locale = :ja
+    config.active_storage.variant_processor = :vips
     #Ex:- :default =>''
     # Configuration for the application, engines, and railties goes here.
     #
